@@ -33,7 +33,6 @@ public class ImpostoDeRenda {
         double impostoServicos = rendaServicos * 0.15;
         double impostoCapital = ganhoCapital * 0.2;
 
-        // Calcular imposto bruto total
         double impostoBruto = impostoSalario + impostoServicos + impostoCapital;
 
     
