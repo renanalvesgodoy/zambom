@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class ContaBar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o sexo (F ou M): ");
+        char sexo = scanner.next().charAt(0);
+
+        System.out.print("Quantidade de cervejas: ");
+        int cervejas = scanner.nextInt();
+        System.out.print("Quantidade de refrigerantes: ");
+        int refrigerantes = scanner.nextInt();
+        System.out.print("Quantidade de espetinhos: ");
+        int espetinhos = scanner.nextInt();
+
+        double valorIngresso = (sexo == 'M') ? 10 : 8;
+        double valorCerveja = 5;
+        double valorRefrigerante = 3;
+        double valorEspetinho = 7;
+        double valorCouvert = 4;
+
+        double valorConsumo = cervejas * valorCerveja + refrigerantes * valorRefrigerante + espetinhos * valorEspetinho;
+        double valorTotal = valorIngresso + valorConsumo;
+
+       
+        if (valorConsumo <= 30) {
+            valorTotal += valorCouvert;
+        }
+
+        System.out.println("\nRelatório da Conta:");
+        System.out.println("Valor do ingresso: R$" + valorIngresso);
+        System.out.println("Valor do consumo: R$" + valorConsumo);
+        System.out.println("Valor do couvert: R$" + (valorConsumo <= 30 ? valorCouvert : 0));
+        System.out.println("Valor total a pagar: R$" + valorTotal);
+    }
+}
