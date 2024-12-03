@@ -1,0 +1,64 @@
+import java.util.Scanner;
+import java.util.HashSet;
+
+public class JogoDaForca {
+    public static void main(String[] args) {
+        String palavraSecreta = "programacao"; // Substitua por outra palavra
+        String tema = "Tecnologia";
+        int tentativas = 6;
+        HashSet<Character> letrasUsadas = new HashSet<>();
+
+        // Cria um array de caracteres para representar a palavra oculta
+        char[] palavraOculta = new char[palavraSecreta.length()];
+        for (int i = 0; i < palavraOculta.length; i++) {
+            palavraOculta[i] = '_';
+        }
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (tentativas > 0 && !String.valueOf(palavraOculta).equals(palavraSecreta)) {
+            System.out.println("Tema: " + tema);
+            System.out.println("Palavra: " + String.valueOf(palavraOculta));
+            System.out.println("Tentativas restantes: " + tentativas);
+            System.out.println("Letras 1  usadas: " + letrasUsadas);
+
+            System.out.print("Digite uma letra: ");
+            char letra = scanner.nextLine().charAt(0);
+            letrasUsadas.add(letra);
+
+            boolean acertou = false;
+            for (int i = 0; i < palavraSecreta.length(); i++) {
+                if (palavraSecreta.charAt(i) == letra) {
+                    palavraOculta[i] = letra;
+                    acertou = true;
+                }
+            }
+
+            if (!acertou) {
+                tentativas--;
+                desenharForca(tentativas);
+            }
+        }
+
+        if (tentativas == 0) {
+            System.out.println("Você perdeu! A palavra era: " + palavraSecreta);
+        } else {
+            System.out.println("Parabéns! Você acertou a palavra!");
+        }
+    }
+
+    // desenhar o boneco na forca
+    public static void desenharForca(int tentativas) {
+        // Implemente aqui a lógica para desenhar o boneco com base no número de tentativas
+        // Utilize ASCII art para criar a imagem
+        switch (tentativas) {
+            case 5:
+                // Desenhe a cabeça
+                break;
+            case 4:
+                // Desenhe o corpo
+                break;
+            // ... e assim por diante
+        }
+    }
+}
